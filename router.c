@@ -168,11 +168,13 @@ int main(int argc, char *argv[])
 				struct in_addr ip_addr = cast_str_ip(get_interface_ip(m.interface));
 				// se verifica daca pachetul este pentru router
 				if (arp_hdr->tpa == ip_addr.s_addr) {
+					
+					// se trimite un raspuns cu adresa MAC aflata
 					update_ethernet_header(eth_hdr, eth_hdr->ether_shost, m.interface);
 					send_arp(arp_hdr->spa, ip_addr.s_addr, eth_hdr, m.interface, htons(2));
 				}
 			} 
-			// ARP REPLAY
+			// ARP REPLY
 			if (arp_hdr->op == htons(2)) { 
 					update_arp_table(arp_table, &arp_table_size, arp_hdr->spa, eth_hdr->ether_shost);
 					send_packets_from_q(q, rtable, rtable_size, arp_table, arp_table_size);
@@ -224,7 +226,7 @@ int main(int argc, char *argv[])
 			struct arp_entry *match_arp = get_arp_entry(best_route->next_hop, arp_table, arp_table_size);
 
 			if (match_arp == NULL) {
-				// se slaveaza pachetul
+				// se salveaza pachetul in coada
 				packet *copy = (packet *)malloc(sizeof(packet)); 
 				memcpy(copy, &m, sizeof(packet));
 				queue_enq(q, copy);
@@ -234,6 +236,8 @@ int main(int argc, char *argv[])
 				send_arp(best_route->next_hop, ip_addr.s_addr, eth_hdr, best_route->interface, htons(1));
 				continue;
 			}
+			
+			// se trimite pachetul
 			update_ethernet_header(eth_hdr, match_arp->mac, best_route->interface);
 			send_packet(best_route->interface, &m);
 		}
