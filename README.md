@@ -17,7 +17,7 @@
 	• vectorul a fost sortat dupa prefix si masca, folosind functia predefinita 
 	in C, qsort() <br>
 	• tabela arp se retine intr-un vector care se actualizeaza atunci cand se efectueaza
-	o cerere de tip ARP REPLAY <br>
+	o cerere de tip ARP REPLY <br>
 	• de fiecare data cand se primeste un pachet se extrage header-ul de ethernet
 	si se verifica tipul urmatorului protocol, ARP sau IP <br><br>
 
@@ -30,13 +30,13 @@
 	a. ARP REQUEST
    
   • are rolul de a afla adresa MAC a host-ului cu adresa IP destinatie <br>
-	• daca este destinat router-ului, acesta va trimite un ARP REPLAY cu adresa
+	• daca este destinat router-ului, acesta va trimite un ARP REPLY cu adresa
 	MAC potrivita <br>
 	• inainte de a trimite pachetul se actualizeaza header-ul de ethernet astfel:
 	adresa sender-ului devine adresa destinatie, iar MAC-ul gasit devine adresa sursa <br>
 	• se actualizeaza header-ul de ARP <br>
 
-	b. ARP REPLAY
+	b. ARP REPLY
    
   • este actualizata tabela ARP cu IP-ul si adresa MAC primita <br>
 	• se trimit pachetele din coada <br><br>
@@ -46,7 +46,7 @@
 
   • se extrage header-ul de IP, urmat de cel de ICMP <br>
 	• daca pachetul este destinat router-ului si este de tip ICMP ECHO REQUEST,
-	atunci va transmite un mesaj ICMP ECHO REPLAY si se arunca pachetul <br>
+	atunci va transmite un mesaj ICMP ECHO REPLY si se arunca pachetul <br>
 	• daca ttl-ul este mai mic sau egal ca 1, atunci se transmite un mesaj ICMP
 	TIME EXCEEDED si se arunca pachetul <br>
 	• se verifica integritatea pachetului; daca valoarea checksum-ului vechi este
