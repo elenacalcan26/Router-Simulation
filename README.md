@@ -21,7 +21,7 @@
 	• de fiecare data cand se primeste un pachet se extrage header-ul de ethernet
 	si se verifica tipul urmatorului protocol, ARP sau IP <br><br>
 
-1. Protocolul ARP
+### 1. Protocolul ARP
 -------------------------------------------------------------------------------
 	
   • se extrage header-ul de arp din pachet <br>
@@ -41,7 +41,7 @@
   • este actualizata tabela ARP cu IP-ul si adresa MAC primita <br>
 	• se trimit pachetele din coada <br><br>
 
-2. Protocoalele IP si ICMP
+### 2. Protocoalele IP si ICMP
 -------------------------------------------------------------------------------
 
   • se extrage header-ul de IP, urmat de cel de ICMP <br>
