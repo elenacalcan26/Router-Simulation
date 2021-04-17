@@ -5,7 +5,7 @@
 
   Programul reprezinta procesul de dirijare a pachetelor a router-ului. <bt>
   Procesul de dirijare consta in primirea unui pachet, investigarea tabelei
-  de rutare, descoperirea rutei corespunzatoare si dirijarea pachetlui. <br>
+  de rutare, descoperirea rutei corespunzatoare si dirijarea pachetului. <br>
   Protocoalele utilizate sunt urmatoarele: <br>
 	    • Ethernet <br>
 	    • ARP <br>
