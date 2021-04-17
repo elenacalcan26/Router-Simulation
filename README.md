@@ -1,7 +1,7 @@
 # Router-Simulation
 
-###### Calcan Elena-Claudia 
-###### 321CA
+<h5>Calcan Elena-Claudia <br/>
+321CA</h5>
 
   Programul reprezinta procesul de dirijare a pachetelor a router-ului. <bt>
   Procesul de dirijare consta in primirea unui pachet, investigarea tabelei
